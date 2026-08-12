@@ -715,9 +715,16 @@ pub enum FeatureFlag {
     /// Get rooms in common with another user.
     ///
     /// [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/2666
-    #[cfg(feature = "unstable-msc2666")]
     #[ruma_enum(rename = "uk.half-shot.msc2666.query_mutual_rooms")]
     Msc2666,
+
+    /// `uk.half-shot.msc2666.query_mutual_rooms.stable` ([MSC])
+    ///
+    /// Get rooms in common with another user. (stable version)
+    ///
+    /// [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/2666
+    #[ruma_enum(rename = "uk.half-shot.msc2666.query_mutual_rooms.stable")]
+    Msc2666Stable,
 
     /// `org.matrix.msc3030` ([MSC])
     ///
@@ -795,6 +802,24 @@ pub enum FeatureFlag {
     /// [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4380
     #[ruma_enum(rename = "org.matrix.msc4380")]
     Msc4380,
+
+    /// `org.continuwuity.presence_v2.msc4495` ([MSC])
+    ///
+    /// Selective Presence.
+    ///
+    /// [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4495
+    #[cfg(feature = "unstable-msc4495")]
+    #[ruma_enum(rename = "org.continuwuity.presence_v2.msc4495")]
+    Msc4495,
+
+    /// `uk.timedout.msc4494` ([MSC])
+    ///
+    /// Membership-based invite blocking
+    ///
+    /// [MSC]: https://github.com/matrix-org/matrix-spec-proposals/pull/4494
+    #[cfg(feature = "unstable-msc4494")]
+    #[ruma_enum(rename = "uk.timedout.msc4494")]
+    Msc4494,
 
     #[doc(hidden)]
     _Custom(PrivOwnedStr),

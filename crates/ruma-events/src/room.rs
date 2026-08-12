@@ -42,7 +42,11 @@ pub mod name;
 pub mod pinned_events;
 pub mod policy;
 pub mod power_levels;
+#[cfg(feature = "unstable-msc4495")]
+pub mod presence_sharing;
 pub mod redaction;
+#[cfg(feature = "unstable-msc1763")]
+pub mod retention;
 pub mod server_acl;
 pub mod third_party_invite;
 mod thumbnail_source_serde;

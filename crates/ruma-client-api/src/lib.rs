@@ -5,6 +5,8 @@
 //!
 //! [client-api]: https://spec.matrix.org/v1.19/client-server-api/
 
+// This crate is not useful without either of those features, so export nothing if they are not
+// enabled to avoid errors when running checks wrongly without enabling any of them.
 #![cfg(any(feature = "client", feature = "server"))]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![warn(missing_docs)]
@@ -41,6 +43,8 @@ pub mod relations;
 #[cfg(any(feature = "unstable-msc4108", feature = "unstable-msc4388"))]
 pub mod rendezvous;
 pub mod reporting;
+#[cfg(feature = "unstable-msc1763")]
+pub mod retention;
 pub mod room;
 #[cfg(feature = "unstable-msc4143")]
 pub mod rtc;

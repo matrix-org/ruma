@@ -135,14 +135,13 @@ unstable-extensible-events = [
     "unstable-msc3954",
     "unstable-msc3955",
 ]
+unstable-msc1763 = ["ruma-client-api?/unstable-msc1763", "ruma-events?/unstable-msc1763"]
 unstable-msc1767 = ["ruma-events?/unstable-msc1767"]
 unstable-msc2448 = ["ruma-client-api?/unstable-msc2448", "ruma-events?/unstable-msc2448"]
 unstable-msc2654 = ["ruma-client-api?/unstable-msc2654"]
-unstable-msc2666 = ["ruma-common/unstable-msc2666", "ruma-client-api?/unstable-msc2666"]
 unstable-msc2747 = ["ruma-events?/unstable-msc2747"]
 unstable-msc2867 = ["ruma-events?/unstable-msc2867"]
 unstable-msc2870 = ["ruma-common/unstable-msc2870"]
-unstable-msc3061 = ["ruma-events?/unstable-msc3061"]
 unstable-msc3202 = ["ruma-appservice-api?/unstable-msc3202"]
 unstable-msc3230 = ["ruma-events?/unstable-msc3230"]
 unstable-msc3245 = ["ruma-events?/unstable-msc3245"]
@@ -185,7 +184,6 @@ unstable-msc4186 = ["ruma-common/unstable-msc4186", "ruma-client-api?/unstable-m
 unstable-msc4195 = ["unstable-msc4143", "ruma-client-api?/unstable-msc4195"]
 unstable-msc4203 = ["ruma-appservice-api?/unstable-msc4203"]
 unstable-msc4262 = ["ruma-common/unstable-msc4262", "ruma-client-api?/unstable-msc4262"]
-unstable-msc4268 = ["ruma-events?/unstable-msc4268"]
 unstable-msc4274 = ["ruma-events?/unstable-msc4274"]
 unstable-msc4278 = ["ruma-events?/unstable-msc4278"]
 unstable-msc4286 = ["ruma-html?/unstable-msc4286"]
@@ -209,6 +207,12 @@ unstable-msc4439 = ["ruma-client-api?/unstable-msc4439"]
 unstable-msc4466 = ["ruma-client-api?/unstable-msc4466"]
 unstable-msc4471 = ["ruma-events?/unstable-msc4471"]
 unstable-msc4480 = ["unstable-msc4354", "ruma-client-api?/unstable-msc4480"]
+unstable-msc4494 = ["ruma-events?/unstable-msc4494", "ruma-common/unstable-msc4494"]
+unstable-msc4495 = [
+    "ruma-common/unstable-msc4495",
+    "ruma-federation-api?/unstable-msc4495",
+    "ruma-events?/unstable-msc4495"
+]
 unstable-uniffi = ["ruma-events?/unstable-uniffi"]
 
 [dependencies]

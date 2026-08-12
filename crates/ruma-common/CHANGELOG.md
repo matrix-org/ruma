@@ -27,8 +27,12 @@ Improvements:
   enum has been introduced to either wrap the changes or signal that the stored profile should be
   dropped.
 - `UserProfile::merge` has been renamed to `UserProfile::apply`.
+- Add experimental support for [MSC4495] (Selective Presence).
+- Add experimental support for [MSC4494] (Membership-based invite blocking).
 
 [MSC4438]: https://github.com/matrix-org/matrix-spec-proposals/pull/4438
+[MSC4495]: https://github.com/matrix-org/matrix-spec-proposals/pull/4495
+[MSC4494]: https://github.com/matrix-org/matrix-spec-proposals/pull/4494
 
 ## 0.19.0
 
