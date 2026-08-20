@@ -8,7 +8,8 @@ use ed25519_dalek::{
     pkcs8::ALGORITHM_OID,
 };
 use pkcs8::{
-    DecodePrivateKey, EncodePrivateKey, ObjectIdentifier, PrivateKeyInfo, der::zeroize::Zeroizing,
+    DecodePrivateKey, EncodePrivateKey, ObjectIdentifier, PrivateKeyInfoRef,
+    der::zeroize::Zeroizing,
 };
 use rand::TryCryptoRng;
 use ruma_common::{SigningKeyAlgorithm, SigningKeyId};
@@ -98,20 +99,17 @@ impl Ed25519KeyPair {
         Ok(Self { signing_key, version })
     }
 
-    /// Constructs a key pair from [`pkcs8::PrivateKeyInfo`].
-    pub fn from_pkcs8_oak(
-        oak: PrivateKeyInfo<'_>,
+    /// Constructs a key pair from [`pkcs8::PrivateKeyInfoRef`].
+    pub fn from_pkcs8(
+        oak: PrivateKeyInfoRef<'_>,
         version: String,
     ) -> Result<Self, Ed25519KeyPairParseError> {
-        Self::new(oak.algorithm.oid, oak.private_key, oak.public_key, version)
-    }
-
-    /// Constructs a key pair from [`pkcs8::PrivateKeyInfo`].
-    pub fn from_pkcs8_pki(
-        oak: PrivateKeyInfo<'_>,
-        version: String,
-    ) -> Result<Self, Ed25519KeyPairParseError> {
-        Self::new(oak.algorithm.oid, oak.private_key, None, version)
+        Self::new(
+            oak.algorithm.oid,
+            oak.private_key.as_ref(),
+            oak.public_key.and_then(|key| key.as_bytes()),
+            version,
+        )
     }
 
     /// PKCS#8's "private key" is not yet actually the entire key,
